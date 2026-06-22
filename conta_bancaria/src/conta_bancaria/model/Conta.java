@@ -2,7 +2,7 @@ package conta_bancaria.model;
 
 public class Conta {
 	
-	/* Atributos da Classe */
+	/* Atributos da Classe INT*/
 	private int numero;
 	private int agencia;
 	private int tipo;

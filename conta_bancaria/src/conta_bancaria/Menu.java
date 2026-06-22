@@ -10,7 +10,7 @@ public class Menu {
 				
 				Scanner leia = new Scanner(System.in);
 				
-	/* Instanciar Objetos da Classe Conta*/
+	/* Instanciar Objetos da Classe Conta - SACAR*/
 	Conta c1 = new Conta(1, 123, 1, "Isabella", 200000.00f);
 	 c1.visualizar();
 				
