@@ -1,57 +1,22 @@
 package conta_bancaria;
-
 import java.util.Scanner;
-
-import conta_bancaria.model.Conta;
+import conta_bancaria.controller.ContaController;
 import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
+	    
+	   private static final Scanner leia = new Scanner(System.in);
+	   private static final ContaController contaController = new ContaController();
+	   
        public static void main(String[] args) {
 				
-				Scanner leia = new Scanner(System.in);
-				
-	/* Instanciar Objetos da Classe Conta */
-	/*Conta c1 = new Conta(1, 123, 1, "Isabella", 200000.00f);
-	 c1.visualizar();
-				
-	Conta c2 = new Conta(2, 123, 2, "Thiago", 100000.00f);
-	 c2.visualizar();*/
-				
-				
-	/* Alteração do Saldo*/
-	/*c1.setSaldo(300000.00f);
-	c1.visualizar(); */
-	
-	
-	/*If ternário
-	 * 
-	 * condição ? ação se for verdadeiro : se for falso*/ 
+		criarContasTeste();
 		
-	 /*System.out.println("\nSacar R$ 3000000.00 da conta C2: " + (c2.sacar(1000.00f) ? 
-						"Saque efetuado com sucesso!" : "Saldo Insuficiente"));
-	 c2.visualizar();
-		
-				
-	/*Deposito*/
-	    
-    /*c2.depositar(50000.00f);
-    c2.visualizar();
-    
-    /*Instanciar Objetos da ContaConrrente*/
-    
-    /*ContaCorrente cc1 = new ContaCorrente(3, 789, 1, "Raquel", 200000.00f, 2000.00f);
-    cc1.visualizar();*/
-    
-    /*System.out.println("\nSacar R$ 202.000,00 da conta C2: " + (cc1.sacar(203000.00f) ? 
-	"Saque efetuado com sucesso!" : "Saldo Insuficiente"));
-    cc1.visualizar();*/
-    
-    ContaPoupanca cp1 = new ContaPoupanca(3, 789, 2, "Raquel", 200000.00f, 25);
-    cp1.visualizar();
-    
-				
+		int opcao;
+
+		while (true) {
 				
 				
     System.out.println(Cores.TEXT_WHITE_BOLD + Cores.ANSI_PURPLE_BACKGROUND);
@@ -83,25 +48,73 @@ public class Menu {
 	System.out.println(" ===========================================================|");
 				
 				
-	int opcao  = leia.nextInt();
+	opcao = leia.nextInt();
 				
 				
-				switch(opcao) {
-				
-				case 1:
-					
-				     leia.nextLine();
-					 System.out.print("\nNome completo: ");
-					 String nomeCompleto = leia.nextLine();
-					 
-					 System.out.print("\nDigite o número da conta: ");
-					 int numeroConta = leia.nextInt();
-					  
-					 break;
-				}
-			
-				
-				leia.close();
+	if (opcao == 0) {
+		System.out.println("\nDEV MONEY - Seu futuro financeiro começa AQUI !");
+		sobre();
+         leia.close();
+		System.exit(0);
+	}
+	switch (opcao) {
+	case 1:
+		System.out.println("Criar Conta\n\n");
+
+		break;
+	case 2:
+		System.out.println("Listar todas as Contas\n\n");
+		 listarContas();
+		 
+		break;	
+	case 3:
+		System.out.println("Buscar conta por número\n\n");
+
+		break;
+	case 4:
+		System.out.println("Atualizar dados da Conta\n\n");
+
+		break;
+	case 5:
+		System.out.println("Apagar a Conta\n\n");
+
+		break;
+	case 6:
+		System.out.println("Sacar\n\n");
+
+		break;
+	case 7:
+		System.out.println("Depositar\n\n");
+
+		break;
+	case 8:
+		System.out.println("Transferência entre Contas\n\n");
+
+		break;
+	default:
+		System.out.println("\nOpção Inválida!\n");
+		break;
+    }
+  }
+}
+       
+       public static void sobre() {
+   		System.out.println("\n*********************************************************");
+   		System.out.println("Projeto Desenvolvido por: Thais de lima santana ");
+   		System.out.println("Generation Brasil - thaislimasantana9@gmail.com");
+   		System.out.println("github.com/conteudoGeneration");
+   		System.out.println("**********************************************************");
+  
+       }
+       
+		public static void criarContasTeste() {
+			contaController.cadastrar(new ContaCorrente(contaController.gerarNumero(), 456, 1, "Thuany Silva", 1000000.00f, 100000.00f));
+            contaController.cadastrar(new ContaPoupanca(contaController.gerarNumero(), 456, 2, "Marcia Condarco", 1000000.00f, 10));
+            
+		}
+	 
+		public static void listarContas() {
+			contaController.ListarTodas();
 
 			}
 		}
