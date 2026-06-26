@@ -46,7 +46,7 @@ public class Menu {
 			System.out.println("|_____|_____________________________________________________|");
 			System.out.println("|  8  |  TRANSFERIR                                         |");
 			System.out.println("|_____|_____________________________________________________|");
-			System.out.println("|  9  |  Consultar por nome do titular                       |");
+			System.out.println("|  9  |  CONSULTAR POR NOME DO TITULAR                      |");
 			System.out.println("|_____|_____________________________________________________|");
 			System.out.println("|  0  |  SAIR                                               |");
 			System.out.println("|===========================================================|");
@@ -132,9 +132,9 @@ public class Menu {
 
 	public static void sobre() {
 		System.out.println("\n*********************************************************");
-		System.out.println("Projeto Desenvolvido por: Thais de lima santana ");
+		System.out.println("Projeto Desenvolvido por: Thais de lima santana");
 		System.out.println("thaislimasantana9@gmail.com");
-		System.out.println("github.com/conteudoGeneration");
+		System.out.println("https://github.com/ThaisSantanaa");
 		System.out.println("**********************************************************");
 
 	}
@@ -235,14 +235,14 @@ public class Menu {
 
 		if (conta.isPresent()) {
 
-			// obtem os dados atuais da conta
+			// Obtem os dados atuais da conta
 
 			int agencia = conta.get().getAgencia();
 			String titular = conta.get().getTitular();
 			int tipo = conta.get().getTipo();
 			float saldo = conta.get().getSaldo();
 
-			// atualiza a a agencia ou mantem o valor atual
+			// atualiza a agência ou mantem o valor atual
 
 			System.out.printf(
 					"Agência atual: %d"
